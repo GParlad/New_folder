@@ -1,7 +1,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_simple_dbt_project'
+name: 'my_dbt_project'
 version: '1.0.0'
 config-version: 2
 
@@ -33,5 +33,10 @@ vars:
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_simple_dbt_project:
-    +materialized: view
+  my_dbt_project:
+    gold_layer:
+      +materialized: view
+      +schema: Gold_layer
+    silver_layer:
+      +materialized: table
+      +schema: Silver_layer
